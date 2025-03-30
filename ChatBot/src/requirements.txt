@@ -1,0 +1,15 @@
+bcrypt
+concurrently
+cors
+dotenv
+express
+express-validator
+jsonwebtoken
+mongoose
+react
+react-dom
+react-router-dom
+fontawesome
+axios
+eslint
+vite
