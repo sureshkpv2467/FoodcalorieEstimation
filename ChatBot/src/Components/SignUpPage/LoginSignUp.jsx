@@ -32,7 +32,7 @@ const LoginSignUp = () => {
 
         try {
             // Send signup data to server
-            const response = await axios.post('http://localhost:5000/signup', {
+            const response = await axios.post('http://localhost:5174/signup', {
                 name: formData.name,
                 email: formData.email,
                 password: formData.password
@@ -47,10 +47,14 @@ const LoginSignUp = () => {
             // Reset form
             setFormData({ name: "", email: "", password: "" });
         } catch (error) {
-            // Handle signup errors
-            const errorMsg = error.response?.data?.msg || "Signup failed";
-            alert(errorMsg);
+            if (error.response?.data?.errors) {
+                const allErrors = error.response.data.errors.map(err => err.msg).join("\n");
+                alert(allErrors);
+            } else {
+                alert("Signup failed");
+            }
         }
+        
     };
 
     const handleLogin = async (e) => {
@@ -64,7 +68,7 @@ const LoginSignUp = () => {
 
         try {
             // Send login credentials to server
-            const response = await axios.post('http://localhost:5000/login', {
+            const response = await axios.post('http://localhost:5174/login', {
                 email: formData.email,
                 password: formData.password
             });

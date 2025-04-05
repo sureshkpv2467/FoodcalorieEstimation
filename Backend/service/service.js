@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { body, validationResult } = require('express-validator');
-require('dotenv').config({ path: path.resolve(__dirname, "../../../.env") });
+require('dotenv').config({ path: path.resolve(__dirname, "../.env") });
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
@@ -200,5 +200,5 @@ app.use((err, req, res, next) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5174;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
