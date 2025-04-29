@@ -12,7 +12,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
     const handleUserMessage = async(message) =>{
           try{
-            const response = await fetch("http://localhost:5000/ask",{
+            const response = await fetch("http://localhost:5174/ask",{
               method: 'POST',
               headers:{
                 "Content-Type":"application/json",

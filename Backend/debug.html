@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Users</title>
+</head>
+<body>
+    <h1>Update Users with Default Values</h1>
+    <button onclick="updateUsers()">Update Users</button>
+    <div id="result"></div>
+
+    <script>
+        async function updateUsers() {
+            try {
+                const response = await fetch('http://localhost:5174/user/debug/update-users', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                const data = await response.json();
+                document.getElementById('result').innerHTML = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('result').innerHTML = 'Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html> 

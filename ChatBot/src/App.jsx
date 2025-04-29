@@ -1,14 +1,19 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';  
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Chatbot from 'react-chatbot-kit'
 import 'react-chatbot-kit/build/main.css'
-import config from './Components/chatBotComp/config'
+import config from './Components/chatBotComp/config.jsx'
 import ActionProvider from './Components/chatBotComp/ActionProvider'
 import MessageParser from './Components/chatBotComp/MessageParser'
 import LoginSignUp from './Components/SignUpPage/LoginSignUp'
+import Navbar from './Components/Navbar/Navbar';
+import Footer from './Components/Footer/Footer';
+import Contact from './Components/Contact/Contact';
+import Review from './Components/Review/Review'
+import Home from './Components/Home/Home'
+import Dashboard from './Pages/Dashboard/Dashboard';
+import Food from './Pages/Food/Food';
 
 function App() {
   const [showChatbot, setShowChatbot] = useState(false);
@@ -16,59 +21,63 @@ function App() {
   const isAuthenticated = () => {
     return localStorage.getItem('token') !== null;
   };
+
   const ProtectedRoute = ({ children }) => {
-    return isAuthenticated() ? children : <Navigate to="/" />;
+    return isAuthenticated() ? children : <Navigate to="/signup" />;
   };
+
   return (
-    <div>
-      {/* Chatbot Toggle Button
-      <div className="chatbot-container">
-        {!showChatbot && <div className="chat-cloud">Ask me anything</div>}
-        <button className="chat-button" onClick={() => setShowChatbot(!showChatbot)}>
-          💬
-        </button>
-      </div> */}
-
-      {/* Chatbot */}
-      {/* {showChatbot && (
-        <div className="chatbot-box">
-          <Chatbot config={config} messageParser={MessageParser} actionProvider={ActionProvider} />
-        </div>
-      )} */}
-      <Router>
-      <Routes>
-        {/* Login Route */}
-        <Route path="/" element={<LoginSignUp />} />
+    <Router>
+      <div className="app">
+        <Navbar />
         
-        {/* Landing Page - Protected Route */}
-        <Route 
-          path="/landing" 
-          element={
-            <ProtectedRoute>
-               <div>
-                  {/* Chatbot Toggle Button */}
-                  <div className="chatbot-container">
-                    {!showChatbot && <div className="chat-cloud">Ask me anything</div>}
-                    <button className="chat-button" onClick={() => setShowChatbot(!showChatbot)}>
-                      💬
-                    </button>
-                  </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<LoginSignUp />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/review" element={<Review />} />
+          <Route path="/food" element={<Food />} />
+          <Route 
+            path="/dashboard" 
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            } 
+          />
+        </Routes>
 
-                  {/* Chatbot */}
-                  {showChatbot && (
-                    <div className="chatbot-box">
-                      <Chatbot config={config} messageParser={MessageParser} actionProvider={ActionProvider} />
-                    </div>
-                  )}
-                </div>
-            </ProtectedRoute>
-          } 
-        />
-      </Routes>
+        {/* Chatbot Toggle Button */}
+        {!showChatbot && (
+          <button 
+            className="chatbot-toggle-button"
+            onClick={() => setShowChatbot(true)}
+          >
+            💬
+          </button>
+        )}
+
+        {/* Chatbot */}
+        {showChatbot && (
+          <div className="chatbot-container">
+            <button 
+              className="chatbot-close-button"
+              onClick={() => setShowChatbot(false)}
+            >
+              ×
+            </button>
+            <Chatbot 
+              config={config} 
+              messageParser={MessageParser} 
+              actionProvider={ActionProvider} 
+            />
+          </div>
+        )}
+
+        <Footer />
+      </div>
     </Router>
-    </div>
-    
-  )
+  );
 }
 
-export default App
+export default App;

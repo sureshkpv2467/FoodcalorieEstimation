@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
-    "backend": "node service/service.js",
+    "backend": "node server.js",
     "frontend": "vite",
     "build": "vite build",
     "lint": "eslint .",
@@ -28,6 +28,8 @@
     "fontawesome": "^5.6.3",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.13.2",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.10",
     "react": "^19.1.0",
     "react-chatbot-kit": "^2.2.2",
     "react-dom": "^19.1.0",

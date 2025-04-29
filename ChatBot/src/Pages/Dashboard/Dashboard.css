@@ -1,0 +1,456 @@
+.dashboard-container {
+    width: 1500px;
+    margin: 74px auto;
+    padding: 2rem;
+}
+
+/* Welcome Section */
+.welcome-section {
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #4299e1 0%, #667eea 100%);
+    border-radius: 16px;
+    color: white;
+}
+
+.user-greeting {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.greeting-text h1 {
+    font-size: 1.875rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.greeting-text p {
+    margin: 0.5rem 0 0;
+    opacity: 0.9;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.dashboard-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Goal Card */
+.goal-card {
+    background: white;
+}
+
+.goal-card h3 {
+    margin: 0 0 1rem;
+    color: #1a202c;
+}
+
+.goal-input {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.calorie-input {
+    width: 120px;
+    padding: 0.5rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.progress-container {
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #4ade80;
+    transition: width 0.3s ease;
+}
+
+.calorie-stats {
+    display: flex;
+    justify-content: space-between;
+    color: #4a5568;
+    font-size: 0.875rem;
+}
+
+/* Quick Add Card */
+.quick-add-card {
+    background: white;
+}
+
+.quick-add-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.quick-add-btn {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    background: #edf2f7;
+    color: #2d3748;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.quick-add-btn:hover {
+    background: #e2e8f0;
+    transform: translateY(-1px);
+}
+
+/* Chart Card */
+.chart-card {
+    grid-column: span 2;
+}
+
+.chart-container {
+    height: 300px;
+    margin-top: 1rem;
+}
+
+/* Stats Card */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.stat-item {
+    padding: 1rem;
+    background: #f7fafc;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.stat-label {
+    display: block;
+    color: #4a5568;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    display: block;
+    color: #2d3748;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.profile-details-container {
+    width: 100%;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: #2d3748;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.profile-photo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    background: #f8f9fa;
+    border: 4px solid #e9ecef;
+    margin-bottom: 1rem;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.default-photo {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #adb5bd;
+}
+
+.photo-upload {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 0.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.photo-upload:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.profile-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.detail-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.detail-row:hover {
+    background: #edf2f7;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.detail-row .label {
+    min-width: 120px;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+.detail-row .value {
+    color: #2d3748;
+    flex: 1;
+}
+
+.detail-row input,
+.detail-row textarea {
+    flex: 1;
+    padding: 0.75rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.detail-row textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Make health problems span full width */
+.detail-row:last-child {
+    grid-column: span 2;
+}
+
+.action-buttons {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.edit-button,
+.save-button {
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+
+.edit-button {
+    background: #edf2f7;
+    color: #4a5568;
+}
+
+.save-button {
+    background: #4299e1;
+    color: white;
+}
+
+.edit-button:hover {
+    background: #e2e8f0;
+    transform: translateY(-1px);
+}
+
+.save-button:hover {
+    background: #3182ce;
+    transform: translateY(-1px);
+}
+
+/* Update responsive styles */
+@media (max-width: 768px) {
+    .profile-details {
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+
+    .detail-row:last-child,
+    .action-buttons {
+        grid-column: span 1;
+    }
+
+    .detail-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .detail-row .label {
+        min-width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .detail-row input,
+    .detail-row textarea {
+        width: 100%;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-container {
+        width: auto;
+        margin: 74px 1rem;
+    }
+
+    .welcome-section {
+        padding: 1.5rem;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-card {
+        grid-column: span 1;
+    }
+
+    .chart-container {
+        height: 250px;
+    }
+
+    .user-greeting {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .greeting-text h1 {
+        font-size: 1.5rem;
+    }
+
+    .profile-section {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .profile-photo-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-photo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .detail-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .detail-row .label {
+        min-width: auto;
+        width: 100%;
+    }
+
+    .detail-row input,
+    .detail-row textarea {
+        width: 100%;
+    }
+
+    .action-buttons {
+        justify-content: center;
+    }
+}
+
+/* Add smooth transitions */
+.profile-section {
+    transition: all 0.3s ease;
+}
+
+.profile-section.collapsible {
+    margin-top: 2rem;
+}
+
+/* Style placeholders */
+.detail-row input::placeholder,
+.detail-row textarea::placeholder {
+    color: #a0aec0;
+}
+
+/* Add focus styles for better accessibility */
+.detail-row input:focus,
+.detail-row textarea:focus {
+    outline: none;
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+/* Add disabled state styles */
+.detail-row input:disabled,
+.detail-row textarea:disabled {
+    background-color: #f7fafc;
+    cursor: not-allowed;
+}
