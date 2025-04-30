@@ -1,156 +1,226 @@
 .food-container {
-    max-width: 1200px;
-    margin: 70px auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     padding: 2rem;
+    background: #f8fafc;
+    margin-top: 55px;
 }
 
 .food-card {
     background: white;
-    border-radius: 12px;
-    padding: 2rem;
+    padding: 2.5rem;
+    border-radius: 1rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 1380px;
 }
 
 .food-card h2 {
-    color: #333;
-    text-align: center;
+    color: #1a202c;
+    font-size: 1.75rem;
+    font-weight: 600;
     margin-bottom: 2rem;
-    font-size: 1.8rem;
 }
 
+/* Form Styles */
 .input-group {
     margin-bottom: 1.5rem;
+    max-width: 600px;
 }
 
 .input-group label {
     display: block;
-    margin-bottom: 0.5rem;
+    color: #4a5568;
+    font-size: 0.875rem;
     font-weight: 500;
-    color: #333;
+    margin-bottom: 0.5rem;
 }
 
 .input-group input {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    color: #1a202c;
+    transition: all 0.2s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+.input-group input::placeholder {
+    color: #a0aec0;
 }
 
 .calculate-btn {
-    width: 100%;
-    padding: 0.75rem;
-    background-color: #2563eb;
+    background: #4299e1;
     color: white;
     border: none;
-    border-radius: 6px;
-    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: all 0.2s ease;
 }
 
 .calculate-btn:hover {
-    background-color: #1d4ed8;
+    background: #3182ce;
 }
 
 .calculate-btn:disabled {
-    background-color: #93c5fd;
+    background: #e2e8f0;
     cursor: not-allowed;
 }
 
-.loading-spinner {
-    text-align: center;
-    margin: 2rem 0;
-    color: #2563eb;
+/* Results Section */
+.analysis-title {
+    font-size: 1.5rem;
+    color: #1a202c;
+    font-weight: 600;
+    margin: 2rem 0 1.5rem;
 }
 
 .result-container {
-    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    width: 1400px;
 }
 
-.result-container h3 {
+.result-box {
+    background: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    
+}
+
+.result-box h3 {
     margin-bottom: 1.5rem;
     color: #333;
     font-size: 1.5rem;
 }
 
-.result-details {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-top: 1rem;
-}
-
-.result-section {
-    background: #f8fafc;
-    border-radius: 8px;
-    padding: 1.5rem;
-    height: 94%;
-}
-
-.result-section h4 {
-    color: #1e40af;
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
-.info-box {
-    background: white;
-    border-radius: 6px;
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.info-box p, .info-box li {
-    margin-bottom: 0.5rem;
-    line-height: 1.5;
-}
-
-.nutrient-list, .alternatives-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.nutrient-list li, .alternatives-list li {
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.nutrient-list li:before, .alternatives-list li:before {
-    content: "•";
-    position: absolute;
-    left: 0.5rem;
-    color: #2563eb;
-}
-
-.error-message {
-    color: #dc2626;
-    background: #fee2e2;
-    padding: 1rem;
-    border-radius: 6px;
-    margin: 1rem 0;
-}
-
-.calories {
+/* Calorie section */
+.calorie-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    position: relative;
+}
+
+.calorie-status {
+    position: absolute;
+    top: -1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fbd38d;
+    color: #975a16;
+    padding: 0.25rem 1rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    z-index: 1;
 }
 
 .calorie-chart {
+    width: 180px;
+    height: 180px;
     position: relative;
-    width: 200px;
-    height: 240px;
-    margin: 2rem auto 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin: 0 auto;
 }
 
+.calorie-circle {
+    width: 100%;
+    height: 100%;
+}
+
+.calorie-circle-bg {
+    fill: none;
+    stroke: #e2e8f0;
+    stroke-width: 12;
+}
+
+.calorie-circle-progress {
+    fill: none;
+    stroke: #4299e1;
+    stroke-width: 12;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    transition: stroke-dashoffset 0.8s ease-in-out;
+}
+
+.calorie-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.calorie-number {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin: 0;
+}
+
+.calorie-label {
+    font-size: 0.75rem;
+    color: #4a5568;
+    margin-top: 0.25rem;
+}
+
+.macro-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.macro-stat {
+    text-align: center;
+    flex: 1;
+}
+
+.macro-value {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin: 0;
+}
+
+.macro-label {
+    font-size: 0.75rem;
+    color: #4a5568;
+    margin-top: 0.25rem;
+}
+
+.daily-value {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.daily-value-text {
+    font-size: 0.875rem;
+    color: #4a5568;
+    margin: 0;
+}
+
+.health-description {
+    font-size: 0.75rem;
+    color: #4a5568;
+    margin-top: 0.25rem;
+}
 .health-status {
     position: absolute;
     top: 0;
@@ -161,56 +231,6 @@
     z-index: 1;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-.calorie-circle {
-    position: relative;
-    width: 180px;
-    height: 180px;
-    margin-top: 20px;
-    fill: none;
-}
-
-.calorie-circle-bg {
-    stroke: #e2e8f0;
-    stroke-width: 12;
-}
-
-.calorie-circle-progress {
-    stroke: #2563eb;
-    stroke-width: 12;
-    stroke-linecap: round;
-    transform: rotate(-90deg);
-    transform-origin: 50% 50%;
-    transition: stroke-dashoffset 0.8s ease-in-out;
-}
-
-.calorie-text {
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 100%;
-    /* background: rgba(255, 255, 255, 0.9); */
-    padding: 8px 0;
-    border-radius: 8px;
-}
-
-.calorie-number {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #1e40af;
-    margin: 0;
-    line-height: 1.2;
-}
-
-.calorie-label {
-    font-size: 0.875rem;
-    color: #64748b;
-    margin-top: 30px;
-    font-weight: 500;
-}
-
 .health-status-label {
     color: white;
     font-size: 0.75rem;
@@ -220,80 +240,201 @@
     white-space: nowrap;
 }
 
-.daily-value {
-    margin-top: 1rem;
-    text-align: center;
+/* Nutrition details styles */
+.nutrition-list {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    width: 100%;
+    gap: 0.5rem;
 }
 
-.daily-value-text {
+.nutrition-item {
+    color: #4a5568;
     font-size: 0.875rem;
-    color: #64748b;
-    margin: 0;
+    position: relative;
+    padding-left: 0.75rem;
+    line-height: 1.5;
+}
+
+.nutrition-item::before {
+    content: '*';
+    position: absolute;
+    left: 0;
+    color: #4299e1;
+}
+
+/* Health Analysis and Alternatives styles */
+.analysis-content {
+    color: #4a5568;
+    line-height: 1.6;
+    font-size: 0.875rem;
+}
+
+.analysis-content p {
+    margin-bottom: 1rem;
+}
+
+.eat-button-wrapper {
+    margin-top: 2rem;
+}
+
+.eat-btn {
+    background: #10b981;
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    padding: 0.5rem 2rem;
+    font-size: 0.875rem;
     font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
-.health-description {
-    font-size: 0.875rem;
-    color: #64748b;
-    margin: 4px 0 0 0;
-    font-style: italic;
-    padding: 0 8px;
+.eat-btn:hover {
+    background: #059669;
 }
 
-.macro-nutrients {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 1rem;
-    padding: 1rem;
-    background: #f8fafc;
-    border-radius: 8px;
-    width: 100%;
-}
-
-.macro-nutrient {
-    text-align: center;
-}
-
-.macro-value {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #2563eb;
-    margin: 0;
-}
-
-.macro-label {
-    font-size: 0.875rem;
-    color: #64748b;
-    margin: 0;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .result-details {
+@media (max-width: 1024px) {
+    .result-container {
         grid-template-columns: 1fr;
     }
+}
 
-    .food-container {
-        padding: 1rem;
-    }
+/* Tab Navigation */
+.tab-navigation {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+}
 
-    .food-card {
-        padding: 1.5rem;
-    }
+.tab-button {
+    padding: 0.75rem 1.5rem;
+    background: none;
+    border: none;
+    color: #4a5568;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
 
-    .food-card h2 {
-        font-size: 1.5rem;
-    }
+.tab-button:hover {
+    color: #4299e1;
+}
 
-    .input-group input {
-        padding: 0.6rem;
-    }
+.tab-button.active {
+    color: #4299e1;
+}
 
-    .info-box {
-        padding: 1rem;
-    }
+.tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #4299e1;
+}
+
+/* Image Upload Section */
+.image-upload-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 600px;
+}
+
+.drop-zone {
+    border: 2px dashed #e2e8f0;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.drop-zone:hover, .drop-zone.dragging {
+    border-color: #4299e1;
+    background-color: rgba(66, 153, 225, 0.05);
+}
+
+.upload-prompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.upload-prompt p {
+    color: #4a5568;
+    margin: 0;
+}
+
+.upload-btn {
+    padding: 0.5rem 1rem;
+    background-color: #4299e1;
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: background-color 0.2s ease;
+}
+
+.upload-btn:hover {
+    background-color: #3182ce;
+}
+
+.preview-container {
+    position: relative;
+    max-width: 100%;
+}
+
+.preview-image {
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 0.375rem;
+}
+
+.remove-image-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: background-color 0.2s ease;
+}
+
+.remove-image-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.analyze-image-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: #4299e1;
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    align-self: flex-start;
+}
+
+.analyze-image-btn:hover:not(:disabled) {
+    background-color: #3182ce;
+}
+
+.analyze-image-btn:disabled {
+    background-color: #e2e8f0;
+    cursor: not-allowed;
 }
